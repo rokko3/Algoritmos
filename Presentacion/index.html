@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafo Interactivo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="/Datos/vertice.js"></script>
+    <script src="/Datos/arista.js"></script>
+    <script src="/Presentacion/sketch.js"></script>
+    <style>
+        body {
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid black;
+        }
+        button {
+            margin: 5px;
+        }
+        #matriz {
+            margin-top: 20px;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grafo Interactivo</h1>
+    
+
+    <button onclick="agregarvertice()">Agregar vertice</button>
+
+    <button onclick="eliminarvertice()">Eliminar vertice</button>
+    <button onclick="conectarvertices()">Conectar vertices</button>
+    <button onclick="eliminararista()">Eliminar arista</button>
+    <button onclick="cambiarPeso()">Cambiar Peso</button>
+</body>
+</html>
