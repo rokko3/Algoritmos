@@ -8,7 +8,10 @@
     <script src="/Datos/vertice.js"></script>
     <script src="/Datos/arista.js"></script>
     <script src="/Presentacion/sketch.js"></script>
+    <script src="/Negocios/kruskal.js"></script>
     <script src="/Negocios/prim.js"></script>
+    <script src="/Negocios/tps.js"></script>
+    <script src="/Negocios/warshall.js"></script>
     <style>
         body {
             text-align: center;
@@ -35,6 +38,9 @@
     <button onclick="conectarvertices()">Conectar vertices</button>
     <button onclick="eliminararista()">Eliminar arista</button>
     <button onclick="cambiarPeso()">Cambiar Peso</button>
-    <button onclick="showdata()">Data</button>
+    <button onclick="encontrarMSTKruskal()">Kruksal</button>
+    <button onclick="encontrarMSTPrim()">Prim</button>
+    <button onclick="encontrarTSP()">Tps</button>
+    <button onclick="floydWarshall(vertices, aristas)">Warshall</button>
 </body>
 </html>
