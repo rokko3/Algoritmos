@@ -1,5 +1,7 @@
 let vertices = []; 
 let aristas = [];
+let matrix=[];
+
 let verticeseleccionado = null; // El vertice que se selccione puede moverse
 
         
@@ -39,32 +41,27 @@ function mouseReleased() {
 }
 
 function agregarvertice() {
-    let nombre = prompt("Ingrese el nombre del vertice:");
-    if (!nombre || vertices.some(n => n.nombre === nombre)) {
-
-        alert("Nombre inválido o repetido.");
-        return;
-    }
-    let nuevovertice = new vertice(nombre, random(50, width - 50), random(50, height - 50));
+    let nuevovertice = new vertice(vertices.length, random(50, width - 50), random(50, height - 50));
     vertices.push(nuevovertice);
 
 }
 
      
 function eliminarvertice() {
-    let nombre = prompt("Ingrese el nombre del vertice a eliminar:");
+    let nombre = parseInt(prompt("Ingrese el nombre del vertice a eliminar:"));
     vertices = vertices.filter(vertice => vertice.nombre !== nombre);
     aristas = aristas.filter(arista => arista.vertice1.nombre !== nombre && arista.vertice2.nombre !== nombre);
 }
 
 function conectarvertices() {
-    let nombre1 = prompt("Ingrese el nombre del primer vertice:");
-    let nombre2 = prompt("Ingrese el nombre del segundo vertice:");
+    let nombre1 = parseInt(prompt("Ingrese el nombre del primer vertice:"));
+    let nombre2 = parseInt(prompt("Ingrese el nombre del segundo vertice:"));
     if (nombre1 === nombre2) {
 
         alert("No puedes conectar un vertice consigo mismo.");
         return;
     }
+    console.log(nombre1>nombre2)
     let vertice1 = vertices.find(n => n.nombre === nombre1);
     let vertice2 = vertices.find(n => n.nombre === nombre2);
     if (!vertice1 || !vertice2) {
@@ -78,15 +75,19 @@ function conectarvertices() {
         alert("El peso debe ser un número positivo.");
         return;
     }
-    let bidireccional = true
-    aristas.push(new arista(vertice1, vertice2, peso, bidireccional));
+    aristas.push(new arista(vertice1, vertice2, peso));
+
+}
+function showdata(){
+    console.log(vertices)
+    console.log(aristas)
 
 }
 
 function eliminararista() {
 
-    let nombre1 = prompt("Ingrese el nombre del primer vertice:");
-    let nombre2 = prompt("Ingrese el nombre del segundo vertice:");
+    let nombre1 = parseInt(prompt("Ingrese el nombre del primer vertice:"));
+    let nombre2 = parseInt(prompt("Ingrese el nombre del segundo vertice:"));
 
     let vertice1 = vertices.find(n => n.nombre === nombre1); //Verificar que los vertices existen
     let vertice2 = vertices.find(n => n.nombre === nombre2);
@@ -110,8 +111,8 @@ function eliminararista() {
 }
 
 function cambiarPeso() {
-    let nombre1 = prompt("Ingrese el nombre del primer vertice:");
-    let nombre2 = prompt("Ingrese el nombre del segundo vertice:");
+    let nombre1 = parseInt(prompt("Ingrese el nombre del primer vertice:"));
+    let nombre2 = parseInt(prompt("Ingrese el nombre del segundo vertice:"));
     let arista = aristas.find(arista => arista.vertice1.nombre === nombre1 && arista.vertice2.nombre === nombre2);
     if (!arista) {
         alert("arista no encontrado.");
