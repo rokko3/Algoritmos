@@ -54,5 +54,7 @@ function encontrarMSTPrim() {
     }
 
     console.log("Arbol de expansion minima (MST) - Prim:", mst);
+    const total= mst.reduce((acumulador, arista)=>acumulador+arista.peso,0);
+    console.log("Peso total"+total)
     return mst;
 }
